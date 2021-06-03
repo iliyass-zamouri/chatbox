@@ -48,7 +48,56 @@ export default {
 </script>
 
 <style>
+.feed {
+  height: 100%;
+  max-height: 470px;
+  padding: 4px;
+  overflow: scroll;
+  flex-direction: column;
+}
+.outgoing_msg{ 
+  overflow:hidden; 
+  margin:20px 0 20px;
+}
+.incoming_msg{ overflow:hidden; 
+  margin:20px 0 20px;
+}
+.feed::-webkit-scrollbar {display: none;}
 a {
   cursor: pointer;
+}
+.received_msg {
+  width: 50%;
+}
+.received_msg p {
+  font-family: 'Poppins', sans-serif;
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 20px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 7px 10px 7px 12px;
+  width: 100%;
+}
+.sent_msg p {
+  font-family: 'Poppins', sans-serif;
+  background: #4B7BEC  none repeat scroll 0 0;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 7px 10px 7px 12px;
+  width:100%;
+}
+
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.sent_msg {
+  float: right;
+  width: 50%;
 }
 </style>

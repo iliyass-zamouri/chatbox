@@ -21,7 +21,7 @@ import ContactsList from './ContactsList';
           return {
               selectedContact : null,
               messages : [],
-              contacts : []
+              contacts : [],
           };
         },
         mounted() {
@@ -30,6 +30,12 @@ import ContactsList from './ContactsList';
                 console.log(e.message);
                 this.handleIncoming(e.message);
             });
+
+
+
+            // $http.get('api/user').then(response => {
+            // console.log(response.body);
+            // })
 
             // window.Echo.private("messages." + this.user.id)
             // .listen('NewMessage', (e) => {
@@ -97,5 +103,20 @@ import ContactsList from './ContactsList';
     }
 </script>
 
+<style>
+.side-contacts {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border:1px solid #D2D2D2; 
+    overflow: hidden;
+    width: 40%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .side-contacts {
+        width: 15%;
+    }
+}
+</style>
 
 
