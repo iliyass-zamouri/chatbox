@@ -2,7 +2,7 @@
   <div v-if="contact" class="feed" ref="feed">
     <div v-for="message in messages" :v-if="message.deleted_at === null" :key="message.id" :class="`${message.to == contact.id ? 'outgoing_msg' : 'incoming_msg'}`">
       <div :class="`${message.to == contact.id ? 'sent_msg' : 'received_msg'}`">
-          <p>{{ message.text }}</p>
+          <p>{{ message.text }} <i v-if="message.read" class="fa fa-check-circle" id="read" aria-hidden="true"></i> </p>
           <span class="time_date"> {{ message.updated_at | formatDate }} <a v-if="!(contact.id==message.from)">|</a> <a v-if="!(contact.id==message.from)" @click="deleteMessageTrigger(message)"><i class="fa fa-trash" aria-hidden="true"></i></a> </span>
       </div>
     </div>
@@ -62,6 +62,11 @@ export default {
 }
 .incoming_msg{ overflow:hidden; 
   margin:20px 0 20px;
+}
+#read{
+  position: relative;
+  float: right;
+  bottom: 0;
 }
 .feed::-webkit-scrollbar {display: none;}
 a {

@@ -36,7 +36,6 @@ import ContactsList from './ContactsList';
         methods:{
             handleIncoming(message) {
                 if (this.selectedContact && message.from == this.selectedContact.id) {
-                    console.log(message);
                     this.saveNewMessage(message);
                     return;
                 }
@@ -47,7 +46,6 @@ import ContactsList from './ContactsList';
                     if (single.id !== contact.id) {
                         return single;
                     }
-
                     if (reset)
                         single.unread = 0;
                     else
@@ -61,7 +59,7 @@ import ContactsList from './ContactsList';
                 axios.get(`/conversation/${contact.id}`).then((response)=>{
                     this.messages = response.data;
                     this.selectedContact = contact;
-                })
+                });
             },
             saveNewMessage(message){
                 this.messages.push(message);

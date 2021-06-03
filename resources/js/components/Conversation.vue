@@ -3,8 +3,7 @@
         <h1 v-if="contact">{{ contact ? contact.name : '' }}</h1>
         <div class="discussion">
             <MessagesFeed :contact="contact" :messages="messages" @pull="deleteMessage" />
-            <p v-if="!contact">select a contact</p>
-            <MessageComposer @send="sendMessage" />
+            <MessageComposer v-if="contact" @send="sendMessage" />
         </div>
     </div>
 </template>

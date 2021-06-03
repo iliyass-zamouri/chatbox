@@ -4,11 +4,12 @@
                 :key="contact.id" @click="selectContact(contact)" 
                 :class="`${contact == selected ? 'chat_list active_chat' : 'chat_list'}`">
                 <div class="contact-div">
+                        <span class="unread" v-if="contact.unread">{{ contact.unread }}</span>
                     <div class="contact-image"> 
                         <img class="avatar" :src="contact.profile_image" :alt="contact.name"> 
                     </div>
                     <div class="contact-infos">
-                        <h5>{{ contact.name }}<span class="unread" v-if="contact.unread">{{ contact.unread }}</span></h5>
+                        <h5>{{ contact.name }}</h5>
                         <p>{{ contact.email }}</p>
                     </div>
             </div>
@@ -66,8 +67,8 @@ export default {
 }  
 
 .contact-image {
-    width: 10%;
-    height: 10%;
+    width: 20%;
+    height: 20%;
 }
 
 .contact-image img {
@@ -96,7 +97,8 @@ export default {
     font-family: 'Poppins', sans-serif;
     font-size:14px; 
     color:#989898; 
-    margin:auto}
+    margin:auto
+}
 
 .active_chat{
     background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(75, 123, 236,0.2));
@@ -108,7 +110,7 @@ export default {
     cursor: pointer;
 }
 
-.inbox { 
+.inbox {
     display: flex;
     flex-direction: column;
     height: calc( 100vh - 70px );
@@ -130,13 +132,16 @@ export default {
   border-radius: 20px; 
 }
 
-.contact-div{ 
-    overflow:hidden; 
-    clear:both; 
+.contact-div{
+    overflow:hidden;
+    clear:both;
     display: flex;
+    position: relative;
     flex-direction: row;
 }
 .unread {
+    position: absolute;
+    right: 2px;
     font-family: 'Poppins', sans-serif;
     background-color: seagreen;
     margin-left: 5px;
@@ -144,7 +149,9 @@ export default {
     border-radius: 40%;
     padding-left: 5px;
     padding-right: 5px;
-    margin: 0 0 8px 0;
+    margin: 0; 
+    width: 5px;
+    height: 5px;
     font-size: 12px;
     float: right;
 }
