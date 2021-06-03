@@ -20,12 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
     img{ max-width:100%;}
-    .side-contacts {
-      background: #f8f8f8 none repeat scroll 0 0;
-      border:1px solid #D2D2D2; 
-      overflow: hidden;
-      width: 40%;
-    }
+
     .primary-inbox {
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       display: flex;
@@ -34,81 +29,8 @@
       clear: both;
       overflow: hidden;
     }
-    .headind_srch { 
-      padding:10px 29px 10px 20px; 
-      overflow:hidden;
-      border-bottom:1px solid #D2D2D2; 
-      background-color: #fff; 
-    }
-    .recent_heading h4 {
-      color: #4B7BEC;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 21px;
-      margin: auto;
-    }    
-    .contact-infos h5{ 
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size:15px; 
-      color:#464646; 
-      margin:0 0 8px 0;
-    }
-    .chat_date {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 300;
-      color:#464646; 
-      margin:0 0 8px 0;
-      font-size:13px; 
-      float:right;
-    }
-    .contact-infos p{ 
-      font-family: 'Poppins', sans-serif;
-      font-size:14px; 
-      color:#989898; 
-      margin:auto}
-    .contact-image {
-      width: 10%;
-      height: 10%;
-    }
-    .contact-infos {
-      width: 90%;
-      padding: 0 0 0 15px;
-    }
     
-    .contact-div{ 
-      overflow:hidden; 
-      clear:both; 
-      display: flex;
-      flex-direction: row;
-    }
-    .inbox { height: 550px; overflow-y: scroll;}
 
-    .inbox::-webkit-scrollbar {display: none;}
-    
-    .active_chat{
-      background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(75, 123, 236,0.1));
-    }
-    
-    .received_msg {
-      width: 50%;
-     }
-     .received_msg p {
-      font-family: 'Poppins', sans-serif;
-      background: #ebebeb none repeat scroll 0 0;
-      border-radius: 20px;
-      color: #646464;
-      font-size: 14px;
-      margin: 0;
-      padding: 7px 10px 7px 12px;
-      width: 100%;
-    }
-    .time_date {
-      color: #747474;
-      display: block;
-      font-size: 12px;
-      margin: 8px 0 0;
-    }
     .conversation {
       display: flex;
       flex-direction: column;
@@ -127,66 +49,12 @@
       font-size: 20px;
       margin: 0;
     }
-    
-     .sent_msg p {
-      font-family: 'Poppins', sans-serif;
-      background: #4B7BEC  none repeat scroll 0 0;
-      border-radius: 20px;
-      font-size: 14px;
-      margin: 0; color:#fff;
-      padding: 7px 10px 7px 12px;
-      width:100%;
-    }
-    .outgoing_msg{ 
-      overflow:hidden; 
-      margin:20px 0 20px;
-    }
-    .incoming_msg{ overflow:hidden; 
-      margin:20px 0 20px;
-    }
-    .sent_msg {
-      float: right;
-      width: 50%;
-    }
-    .composer textarea {
-      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-      border: 1px solid #4B7BEC;
-      border-radius: 3px;
-      resize: none;
-      margin: 10px;
-      margin-left: 0;
-      padding: 6px;
-      color: #4c4c4c;
-      font-size: 15px;
-      min-height: 48px;
-      width: 100%;
-    }
-    .avatar {
-      vertical-align: middle;
-      width: 40px;
-      height: 40px;
-      border-radius: 100px;
-    }
-    .composer {
-      position: relative;
-    }
+
     .messaging { 
       padding: 0 0 50px 0;
       background-color: #fff;
     }
-    .feed {
-      height: 100%;
-      max-height: 470px;
-      padding: 4px;
-      overflow: scroll;
-      flex-direction: column;
-    }
-    .feed::-webkit-scrollbar {display: none;}
-    .chat_list {
-      border-bottom:1px solid #D2D2D2; 
-      padding: 18px 16px 10px;
-      cursor: pointer;
-    }
+
     .app {
       background-color: rgba(75, 123, 236,0.1); /* Used if the image is unavailable */
       background-position: center; /* Center the image */
@@ -201,6 +69,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-reboot.css')}}"> -->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
