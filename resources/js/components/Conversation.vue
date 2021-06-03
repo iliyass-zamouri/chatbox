@@ -1,8 +1,11 @@
 <template>
-    <div class="conversation">
-        <h1>{{ contact ? contact.name : '' }}</h1>
-        <MessagesFeed :contact="contact" :messages="messages" @pull="deleteMessage" />
-        <MessageComposer @send="sendMessage" />
+  <div class="conversation">      
+        <h1 v-if="contact">{{ contact ? contact.name : '' }}</h1>
+        <div class="discussion">
+            <MessagesFeed :contact="contact" :messages="messages" @pull="deleteMessage" />
+            <p v-if="!contact">select a contact</p>
+            <MessageComposer @send="sendMessage" />
+        </div>
     </div>
 </template>
 
@@ -21,14 +24,13 @@ export default {
         }
     },
     methods:{
-            sendMessage(text) {
+            sendMessage(message) {
                 if (!this.contact) {
                     return;
                 }
-
                 axios.post('/conversation/send', {
                     contact_id: this.contact.id,
-                    text: text
+                    message: message
                 }).then((response) => {
                     this.$emit('new', response.data);
                 })
@@ -38,7 +40,6 @@ export default {
                     axios.post('/conversation/delete', {
                     id: message.id,
                 }).then((response) => {
-                    console.log(response.data + "hello");
                  this.$emit('deleted', message);
                 })
             },
@@ -49,3 +50,44 @@ export default {
     }
 }
 </script>
+
+<style>
+.discussion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 10px 0px;
+}
+.discussion p {
+    width: 100%;
+    height: 100%;
+    display: block;
+    clear: both;
+}
+
+.conversation  { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 70%;
+}
+.conversation h1 {
+    border-bottom:1px solid #D2D2D2; 
+    padding: 10px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    font-weight: 600;
+    color: #2564FF;
+    font-size: 20px;
+    margin: 0;
+}
+@media only screen and (max-width: 768px) {
+    .conversation {
+        width: 85%;
+    }
+}
+
+</style>

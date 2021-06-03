@@ -1,28 +1,19 @@
 <template>
-<div class="contact-section">
-     <div class="headind_srch">
-            <div class="recent_heading">
-                <h4>Contacts List</h4>
-            </div>
-        </div> 
-        <div class="inbox">
-        
+    <div class="inbox">
         <div v-for="contact in sortedContacts" 
-             :key="contact.id" @click="selectContact(contact)" 
-             :class="`${contact == selected ? 'chat_list active_chat' : 'chat_list'}`">
-             <div class="contact-div">
-                 <div class="contact-image"> 
-                     <img class="avatar" :src="contact.profile_image" :alt="contact.name"> 
-                 </div>
-                 <div class="contact-infos">
-                     <h5>{{ contact.name }}<span class="unread" v-if="contact.unread">{{ contact.unread }}</span></h5>
-                     <p>{{ contact.email }}</p>
-                 </div>
+                :key="contact.id" @click="selectContact(contact)" 
+                :class="`${contact == selected ? 'chat_list active_chat' : 'chat_list'}`">
+                <div class="contact-div">
+                    <div class="contact-image"> 
+                        <img class="avatar" :src="contact.profile_image" :alt="contact.name"> 
+                    </div>
+                    <div class="contact-infos">
+                        <h5>{{ contact.name }}<span class="unread" v-if="contact.unread">{{ contact.unread }}</span></h5>
+                        <p>{{ contact.email }}</p>
+                    </div>
             </div>
         </div>
     </div>
-</div>
-   
 </template>
 
 <script>
@@ -79,6 +70,10 @@ export default {
     height: 10%;
 }
 
+.contact-image img {
+    object-fit: scale-down;
+}
+
 .avatar {
     vertical-align: middle;
     width: 40px;
@@ -104,23 +99,37 @@ export default {
     margin:auto}
 
 .active_chat{
-    background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(75, 123, 236,0.1));
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(75, 123, 236,0.2));
 }
 
 .chat_list {
     border-bottom:1px solid #D2D2D2; 
-    padding: 18px 16px 10px;
+    padding: 16px;
     cursor: pointer;
 }
 
-.inbox { height: 550px; overflow-y: scroll;}
-
-.inbox::-webkit-scrollbar {display: none;}
-
-.contact-section {
+.inbox { 
     display: flex;
     flex-direction: column;
+    height: calc( 100vh - 70px );
+    overflow-y: scroll;
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: #2564FF transparent; 
 }
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #D2D2D2;
+  border-radius: 20px; 
+}
+
 .contact-div{ 
     overflow:hidden; 
     clear:both; 
@@ -132,11 +141,16 @@ export default {
     background-color: seagreen;
     margin-left: 5px;
     color: white;
-    border-radius: 5px;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin:0 0 8px 0;
-    float:right;
+    border-radius: 40%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    float: right;
+}
+.active_chat .contact-div .contact-infos h5 {
+    font-weight: 700; 
+    color:#000; 
 }
 
 @media only screen and (max-width: 768px) {
@@ -145,6 +159,11 @@ export default {
     }
     .headind_srch {
         display: none;
+    }
+    .chat_list {
+        border-bottom:1px solid #D2D2D2; 
+        padding: 5px;
+        cursor: pointer;
     }
     .avatar {
         vertical-align: middle;
@@ -156,6 +175,10 @@ export default {
         width: 100%;
         height: 100%;
     }
+    .active_chat .avatar{
+        border: #4B7BEC solid 2px;
+    }
+    .inbox::-webkit-scrollbar {display: none;}
 }
 
 </style>

@@ -49,8 +49,9 @@ export default {
 
 <style>
 .feed {
+  flex: 1 1 auto;
   height: 100%;
-  max-height: 470px;
+  max-height: calc( 100vh - 200px );
   padding: 4px;
   overflow: scroll;
   flex-direction: column;
@@ -67,13 +68,13 @@ a {
   cursor: pointer;
 }
 .received_msg {
-  width: 50%;
+  width: fit-content;
 }
 .received_msg p {
   font-family: 'Poppins', sans-serif;
-  background: #ebebeb none repeat scroll 0 0;
+  background: #F0F0F0 none repeat scroll 0 0;
   border-radius: 20px;
-  color: #646464;
+  color: #383838;
   font-size: 14px;
   margin: 0;
   padding: 7px 10px 7px 12px;
@@ -81,7 +82,7 @@ a {
 }
 .sent_msg p {
   font-family: 'Poppins', sans-serif;
-  background: #4B7BEC  none repeat scroll 0 0;
+  background: #2564FF  none repeat scroll 0 0;
   border-radius: 20px;
   font-size: 14px;
   margin: 0; color:#fff;
@@ -98,6 +99,6 @@ a {
 
 .sent_msg {
   float: right;
-  width: 50%;
+  width: fit-content;
 }
 </style>

@@ -27,34 +27,19 @@ import ContactsList from './ContactsList';
         mounted() {
             window.Echo.private("messages." + this.user.id)
             .listen('NewMessage', (e) => {
-                console.log(e.message);
                 this.handleIncoming(e.message);
             });
-
-
-
-            // $http.get('api/user').then(response => {
-            // console.log(response.body);
-            // })
-
-            // window.Echo.private("messages." + this.user.id)
-            // .listen('NewMessage', (e) => {
-            //     console.log(e.message);
-            //     this.handleIncoming(e.message,'new');
-            // });
-
             axios.get('/contacts').then((response)=>{
                 this.contacts = response.data;
             });
         },
         methods:{
             handleIncoming(message) {
-
-                    if (this.selectedContact && message.from == this.selectedContact.id) {
-                        console.log(message);
-                        this.saveNewMessage(message);
-                        return;
-                    }
+                if (this.selectedContact && message.from == this.selectedContact.id) {
+                    console.log(message);
+                    this.saveNewMessage(message);
+                    return;
+                }
                 this.updateCount(message.from_contact, false);
             },
             updateCount(contact, reset) {
@@ -104,11 +89,24 @@ import ContactsList from './ContactsList';
 </script>
 
 <style>
-.side-contacts {
-    background: #f8f8f8 none repeat scroll 0 0;
-    border:1px solid #D2D2D2; 
+.primary-inbox {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: row;
     overflow: hidden;
-    width: 40%;
+    padding: 0;
+    margin: 0;
+}
+.messaging { 
+    max-height: calc( 100vh - 70px );
+    padding: 0 0 50px 0;
+    background-color: #fff;
+}
+.side-contacts {
+    background: #f8f8f8 none repeat scroll 0 0; 
+    overflow: hidden;
+    width: 30%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -116,6 +114,14 @@ import ContactsList from './ContactsList';
     .side-contacts {
         width: 15%;
     }
+    .primary-inbox {
+        width: auto;
+    }
+    .messaging { 
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+}
 }
 </style>
 

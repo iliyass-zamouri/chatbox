@@ -19,42 +19,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    img{ max-width:100%;}
-
-    .primary-inbox {
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      display: flex;
-      border-radius: 5px;
-      flex-direction: row;
-      clear: both;
-      overflow: hidden;
-    }
-    
-
-    .conversation {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-top:1px solid #D2D2D2; 
-      border-bottom:1px solid #D2D2D2; 
-      border-right:1px solid #D2D2D2; 
-      padding: 10px 15px 0 25px;
-      width: 60%;
-    }
-    .conversation h1 {
-      text-align: left;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      color: #4B7BEC;
-      font-size: 20px;
-      margin: 0;
-    }
-
-    .messaging { 
-      padding: 0 0 50px 0;
-      background-color: #fff;
-    }
-
     .app {
       background-color: rgba(75, 123, 236,0.1); /* Used if the image is unavailable */
       background-position: center; /* Center the image */

@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-sm-12">
             <div class="card">
-            <div class="card-header">Inbox</div>
-                <div class="card-body" id="app">
+            <div class="card-header" style="background-color: #2564FF; color: #fff;">Inbox</div>
+                <div class="card-body" id="app" style="padding:0;">
                <inbox :user="{{ auth()->user() }}"></inbox>
                 </div>
             </div>

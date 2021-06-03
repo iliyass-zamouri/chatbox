@@ -56,7 +56,7 @@ class ContactsController extends Controller
       $message = Message::create([
           'from' => auth()->id(),
           'to' => $request->contact_id,
-          'text' => $request->text,
+          'text' => $request->message,
        ]);
 
        broadcast(new NewMessage($message))->toOthers();

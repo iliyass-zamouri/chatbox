@@ -40,7 +40,6 @@
     min-height: 48px;
     width: 100%;
 }
-.composer {
-    position: relative;
-}
+
+
 </style>
