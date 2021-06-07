@@ -20,12 +20,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('inbox');
 
 Route::get('/contacts','App\Http\Controllers\ContactsController@get');
 
-Route::get('/conversation/{id}','App\Http\Controllers\ContactsController@getMessages');
+Route::get('/conversation/{id}',[App\Http\Controllers\ContactsController::class,'getMessages']);
 
 Route::post('/conversation/send','App\Http\Controllers\ContactsController@send');
 
 Route::post('/conversation/delete','App\Http\Controllers\ContactsController@deleteMessage');
+
+
+// Route::get('/send-message-api',function () {
+//     return view('pusher.messanger');
+// });
+

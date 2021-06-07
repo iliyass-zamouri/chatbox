@@ -16,6 +16,7 @@ class Message extends Model
         'from',
         'to',
         'text',
+        'read',
     ];
     protected $dates=[
         'deleted_at'

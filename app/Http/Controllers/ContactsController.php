@@ -53,11 +53,29 @@ class ContactsController extends Controller
     }
     public function send(Request $request)
     {
-      $message = Message::create([
+
+        $message = Message::create([
           'from' => auth()->id(),
           'to' => $request->contact_id,
           'text' => $request->message,
        ]);
+      
+      
+
+       broadcast(new NewMessage($message))->toOthers();
+
+       return response()->json($message);
+    }
+    public function send_api(Request $request)
+    {
+
+        $message = Message::create([
+          'from' => $request->from,
+          'to' => $request->contact_id,
+          'text' => $request->message,
+       ]);
+      
+      
 
        broadcast(new NewMessage($message))->toOthers();
 

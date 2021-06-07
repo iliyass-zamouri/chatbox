@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Broadcast::channel('messages.{id}', function ($user, $id) {
-    if(Auth::check()){
+    // if(Auth::check()){
         return $user->id === (int) $id;
-    }
+    // }
 });
