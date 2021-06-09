@@ -22,7 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/send-message-api',[App\Http\Controllers\ContactsController::class,'send_api']);
+Route::get('/contacts/{id}',[App\Http\Controllers\ContactsController::class,'get_api']);
+Route::get('/conversation/{id}/{user}',[App\Http\Controllers\ContactsController::class,'getMessagesApi']);
 
-
-Route::post('login', [App\Http\Controllers\Auth\LoginController::class,'login']);
-Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+// Route::post('login', [App\Http\Controllers\Auth\LoginController::class,'login']);
+// Route::post('register', [App\Http\Controllers\Auth\RegisterController::class,'register']);
