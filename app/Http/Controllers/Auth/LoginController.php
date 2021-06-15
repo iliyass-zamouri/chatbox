@@ -22,8 +22,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-
-    public User $user
     /**
      * Where to redirect users after login.
      *
