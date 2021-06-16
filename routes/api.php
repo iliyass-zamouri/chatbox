@@ -20,7 +20,9 @@ use App\Http\Controllers\Auth\LoginController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('/register
+','App\Http\Controllers\Auth\RegisterController@create');
+Route::post('/login','App\Http\Controllers\Auth\LoginController@login');
 Route::post('/send-message-api',[App\Http\Controllers\ContactsController::class,'send_api']);
 Route::get('/contacts/{id}',[App\Http\Controllers\ContactsController::class,'get_api']);
 Route::get('/conversation/{id}/{user}',[App\Http\Controllers\ContactsController::class,'getMessagesApi']);
