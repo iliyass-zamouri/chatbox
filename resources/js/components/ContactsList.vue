@@ -147,11 +147,11 @@ export default {
     margin-left: 5px;
     color: white;
     border-radius: 40%;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6px;
+    padding-right: 8px;
     margin: 0; 
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 15px;
     font-size: 12px;
     float: right;
 }
@@ -186,6 +186,22 @@ export default {
         border: #4B7BEC solid 2px;
     }
     .inbox::-webkit-scrollbar {display: none;}
+    .unread {
+    position: absolute;
+    right: 2px;
+    font-family: 'Poppins', sans-serif;
+    background-color: seagreen;
+    margin-left: 5px;
+    color: white;
+    border-radius: 40%;
+    padding-left: 6px;
+    padding-right: 8px;
+    margin: 0; 
+    width: 10px;
+    height: 15px;
+    font-size: 12px;
+    float: right;
+}
 }
 
 </style>
