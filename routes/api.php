@@ -16,12 +16,12 @@ use App\Http\Controllers\Auth\LoginController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Auth::routes();
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/register
-','App\Http\Controllers\Auth\RegisterController@create');
+','App\Http\Controllers\Auth\RegisterController@register');
 Route::post('/login','App\Http\Controllers\Auth\LoginController@login');
 Route::post('/send-message-api',[App\Http\Controllers\ContactsController::class,'send_api']);
 Route::get('/contacts/{id}',[App\Http\Controllers\ContactsController::class,'get_api']);

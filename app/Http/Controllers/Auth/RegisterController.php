@@ -70,4 +70,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    public function register(Request $request){
+        $user = new User();
+        $user->password = Hash::make($request->password);
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->save();
+        $newuser = User::where('email' ,$request->email)->get()->first();
+        return response()->json($newuser);
+    }
 }
